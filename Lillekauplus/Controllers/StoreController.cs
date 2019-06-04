@@ -36,6 +36,8 @@ namespace Lillekauplus.Controllers
         }
 
         // GET: Store/Create
+        [Authorize(Roles="Admin")]
+        
         public ActionResult Create()
         {
             return View();
@@ -46,6 +48,8 @@ namespace Lillekauplus.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Create([Bind(Include = "Id,Nimetus,Muuja,Hind")] Lilled lilled)
         {
             if (ModelState.IsValid)
@@ -59,6 +63,8 @@ namespace Lillekauplus.Controllers
         }
 
         // GET: Store/Edit/5
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -78,6 +84,8 @@ namespace Lillekauplus.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Edit([Bind(Include = "Id,Nimetus,Muuja,Hind")] Lilled lilled)
         {
             if (ModelState.IsValid)
@@ -90,6 +98,8 @@ namespace Lillekauplus.Controllers
         }
 
         // GET: Store/Delete/5
+        [Authorize(Roles = "Admin")]
+
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,6 +117,8 @@ namespace Lillekauplus.Controllers
         // POST: Store/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
+
         public ActionResult DeleteConfirmed(int id)
         {
             Lilled lilled = db.Lilleds.Find(id);

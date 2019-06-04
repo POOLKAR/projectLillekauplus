@@ -11,5 +11,6 @@ namespace Lillekauplus.Models
         public string Nimetus { get; set; }
         public string Muuja { get; set; }
         public int Hind { get; set; }
+
     }
 }

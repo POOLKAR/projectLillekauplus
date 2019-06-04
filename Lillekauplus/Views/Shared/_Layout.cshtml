@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Книжный магазин</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -16,23 +16,32 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <img src="~/logo/PeterM_Flower.png" alt="logo" class="navbar-brand" />
+                @Html.ActionLink("Цветочный магазин", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Главная страница", "Index","Home") </li>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("admin"))
+                    {
+                        <li>@Html.ActionLink("Админ панель", "Index", "Store")</li>
+
+                    }
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("User"))
+                    {
+                        <li>@Html.ActionLink("О нас", "About", "Home")</li>
+                        <li>@Html.ActionLink("Связь с нами", "Contact", "Home")</li>
+                    }
+
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     @if (Request.IsAuthenticated)
                     {
-                        <li><a href="../../Home/Logout">Log out</a></li>
+                        <li><a href="../../Home/Logout">Выйти</a></li>
                     }
                     else
                     {
-                        <li>@Html.ActionLink("Register", "Register", "Account")</li>
-                        <li>@Html.ActionLink("Login", "Login", "Account")</li>
+                        <li>@Html.ActionLink("Войти", "Login", "Account")</li>
                     }
                 </ul>
             </div>
@@ -41,8 +50,9 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <footer style="text-align: right;">
+            <p>&copy @DateTime.Now.Year - Nikita Jefremov</p>
+            <p>Текущее время: <b>@DateTime.Now.ToShortTimeString()</b></p>
         </footer>
     </div>
 

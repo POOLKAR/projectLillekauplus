@@ -14,6 +14,7 @@ namespace Lillekauplus
     {
         protected void Application_Start()
         {
+            Database.SetInitializer(new UserDbInitializer());
             Database.SetInitializer(new LilledDbInitializer());
 
             AreaRegistration.RegisterAllAreas();

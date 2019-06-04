@@ -16,7 +16,7 @@ namespace Lillekauplus.Models
     {
         protected override void Seed(LilledContext db)
         {
-            db.Lilleds.Add(new Lilled { Nimetus = "Romawka", Muuja = "Ashot", Hind = 300 });
+            db.Lilleds.Add(new Lilled { Nimetus = "Romawka", Muuja = "Ashot" ,Hind = 300 });
             db.Lilleds.Add(new Lilled { Nimetus = "Rabarbar", Muuja = "Uzber", Hind = 300 });
 
 

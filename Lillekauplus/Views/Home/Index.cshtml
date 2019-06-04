@@ -1,25 +1,24 @@
 ﻿@model IEnumerable<Lillekauplus.Models.Lilled>
 @{ 
-    ViewBag.Title = "Цветочный магазин";
+    ViewBag.Title = "Главная страница";
 }
-<div>
-    <h3>Распродажа цветов</h3>
-    <table>
-        <tr>
-            <td><p>Название цветка</p></td>
+<div style="text-align: center;">
+    <h3>Выберите товар для покупки:</h3>
+    <table class="table" align="center" style="width: 100%; text-align: center; margin-top: 2%;">
+        <tr style="font-weight: bold; font-size: 16px;">
+            <td><p>Название товара</p></td>
             <td><p>Продавец</p></td>
             <td><p>Цена</p></td>
+            <td colspan="3"><p>Действие</p></td>
         </tr>
         @foreach (var b in ViewBag.Lilleds)
         {
-        <tr>
+        <tr style="font-size:18px;">
             <td><p>@b.Nimetus</p></td>
             <td><p>@b.Muuja</p></td>
-            <td><p>@b.Hind</p></td>
-            <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
-            <td><p><a href="/Home/DeleteLilled/@b.Id">Удалить</a></p></td>
-            <td><p><a href="/Home/EditLilled/@b.Id">Редактировать</a></p></td>
-            <td><p><a href="/Home/CreateLilled/@b.Id">Добавить</a></p></td>
+            <td><p>@b.Hind &euro;</p></td>
+            <td><p><a href="/Home/Buy/@b.Id?@b.Nimetus" class="btn btn-success">Купить цветы</a></p></td>
+            
         </tr>
         }
     </table>
