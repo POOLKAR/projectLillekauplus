@@ -1,0 +1,27 @@
+﻿@model Lillekauplus.Models.Lilled
+@{
+    ViewBag.Title = "Удаление товаров";
+}
+
+<h3>Товар № @Model.Id</h3>
+<h3>Товар № @Model.Id</h3>
+<dl>
+    <dt>Название</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Nimetus)
+    </dd>
+    <dt>Продавец</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Muuja)
+    </dd>
+    <dt>Цена</dt>
+    <dd>
+        @Html.DisplayFor(model => model.Hind)
+    </dd>
+</dl>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" value="Удалить" />
+}
+

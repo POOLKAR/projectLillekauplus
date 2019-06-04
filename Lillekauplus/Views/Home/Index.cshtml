@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Lillekauplus.Models.Lilled>
+@{ 
+    ViewBag.Title = "Цветочный магазин";
+}
+<div>
+    <h3>Распродажа цветов</h3>
+    <table>
+        <tr>
+            <td><p>Название цветка</p></td>
+            <td><p>Продавец</p></td>
+            <td><p>Цена</p></td>
+        </tr>
+        @foreach (var b in ViewBag.Lilleds)
+        {
+        <tr>
+            <td><p>@b.Nimetus</p></td>
+            <td><p>@b.Muuja</p></td>
+            <td><p>@b.Hind</p></td>
+            <td><p><a href="/Home/Buy/@b.Id">Купить</a></p></td>
+            <td><p><a href="/Home/DeleteLilled/@b.Id">Удалить</a></p></td>
+            <td><p><a href="/Home/EditLilled/@b.Id">Редактировать</a></p></td>
+            <td><p><a href="/Home/CreateLilled/@b.Id">Добавить</a></p></td>
+        </tr>
+        }
+    </table>
+</div>

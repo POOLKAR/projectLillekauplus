@@ -1,0 +1,21 @@
+﻿@{ 
+    ViewBag.Title = "Покупка цветов";
+}
+
+<div>
+    <h3>Форма оформления покупки</h3>
+    <form method="post">
+        <input type="hidden" value="@ViewBag.LilledId" name="LilledId" />
+        <table>
+            <tr>
+                <td><p>Введите свое имя</p></td>
+                <td><input type="text" name="Person" /> </td>
+            </tr>
+            <tr>
+                <td><p>Введите адресс :</p></td>
+                <td><input type="text" name="Address" /> </td>
+            </tr>
+            <tr><td><input type="submit" value="Отправить" /> </td><td></td></tr>
+        </table>
+    </form>
+</div>
